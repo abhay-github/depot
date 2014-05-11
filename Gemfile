@@ -32,6 +32,19 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+group :development, :test do
+	gem 'rspec-rails', '2.14.1'
+
+end
+
+group :test do
+	gem 'selenium-webdriver'
+	gem 'capybara'
+  	gem 'factory_girl_rails'
+	gem 'database_cleaner', github: 'bmabey/database_cleaner'
+	gem 'launchy'
+	gem 'libnotify'
+end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
