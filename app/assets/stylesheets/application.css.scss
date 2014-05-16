@@ -1,0 +1,88 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+
+
+nav.navbar{
+	background: #9c9;
+	border: none;
+	border-radius: 0;
+	border-bottom: 2px solid;
+	text-align: center;
+	color: #282 !important;
+	margin: 0;
+
+	.navbar-brand {
+		// font: small-caps 20px/20px "Times New Roman", serif;
+		color: #282;
+		font-size: 40px;
+		line-height: 40px;
+		height: 70px;
+		&:hover{ color: #141; }
+	}
+	.navbar-text{
+		font-size: 20px;
+		font-style: italic;
+		float: right;
+		color: #282;
+		margin-top: 30px;
+	}
+}
+
+aside{
+	background: #141;
+	// position: absolute !important;
+	// bottom: 0;
+	// top: 72px;
+	padding: 30px;
+	height: 600px;
+
+	ul{
+		list-style: none;
+		li > a { 
+			color: #bfb;
+			&:hover{ color: #fff; text-decoration:none;
+			 }
+			}
+		li{ margin-top: 10px; }
+	}
+	p{
+		color: #fff;
+		font-size: 12px;
+		text-align: right;
+		padding-top: 50px;
+		text-transform: lowercase;
+		font-style: italic;
+	}
+}
+
+
+
+// <% cache ['store', Product.latest] do %>
+// 	<ul class="catalog">
+// 		<% @products.each do |product| %>
+// 			<% cache ['entry', product] do%>
+// 				<li class="row">
+// 					<div class="col-md-2">
+// 						<%= image_tag product.image_url, size: "150x150" , class: "img-responsive" %>
+// 					</div>
+// 					<div class="col-md-10 ">
+// 						<h2><%= product.name %></h2>
+// 						<p><%= sanitize product.description %></p>
+// 						<p><%= number_to_currency(product.price) %></p>
+// 					</div>
+// 				</li>
+// 			<% end %>
+// 		<% end %>
+// 	</ul>
+// <% end %>

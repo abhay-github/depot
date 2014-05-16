@@ -1,0 +1,19 @@
+// Place all the styles related to the Store controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.store{
+	h1{
+		color: #227;
+		border-bottom:1px dashed #44a;
+	}
+	ul.catalog{
+		list-style: none;
+		 li{
+		 	h2{color: #227;} 
+		 	p:last-child{ color: #44a; }
+		 	margin-bottom:10px;	
+ 		} 
+		 
+	}	
+}

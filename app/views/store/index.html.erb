@@ -1,0 +1,19 @@
+<h1>My Catalog</h1>
+<% cache ['store', Product.latest] do %>
+	<ul class="catalog">
+		<% @products.each do |product| %>
+			<% cache ['entry', product] do%>
+				<li class="row">
+					<div class="col-md-2">
+						<%= image_tag product.image_url, size: "150x150" , class: "img-responsive" %>
+					</div>
+					<div class="col-md-10 ">
+						<h2><%= product.name %></h2>
+						<p><%= sanitize product.description %></p>
+						<p><%= number_to_currency(product.price) %></p>
+					</div>
+				</li>
+			<% end %>
+		<% end %>
+	</ul>
+<% end %>

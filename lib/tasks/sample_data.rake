@@ -9,7 +9,8 @@ namespace :db do
 			name = Faker::Commerce.product_name
 			description = Faker::Lorem.paragraph
 			image_url = img_urls[i]
-			price = rand (10.00)..(100.00)
+			# price = rand (10.00)..(100.00)
+			price = rand 10..100
 			price = price.round(2)
 			Product.create!(name: name, description: description, price: price, image_url: image_url)
 		end
