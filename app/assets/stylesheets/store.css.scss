@@ -11,8 +11,13 @@
 		list-style: none;
 		 li{
 		 	h2{color: #227;} 
-		 	p:last-child{ color: #44a; }
-		 	margin-bottom:10px;	
+		 	span.currency{ color: #44a; }
+		 	margin-bottom:10px;
+		 	form{ display: inline-block;
+				div { display: inline-block;
+					  margin-left: 10px;
+			  	}
+		 	 }	
  		} 
 		 
 	}	

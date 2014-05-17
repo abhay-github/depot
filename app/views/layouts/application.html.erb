@@ -38,6 +38,11 @@ buy and sell</p>
 
  </aside>
 <div class="col-sm-10">
+  <% flash.each do |key, value| %>
+    <div class="alert alert-<%= key %>">
+        <%= value %>  
+    </div>
+  <% end %>
 	<%= yield %>
 </div>
 

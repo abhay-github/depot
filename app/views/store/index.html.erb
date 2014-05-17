@@ -9,11 +9,18 @@
 					</div>
 					<div class="col-md-10 ">
 						<h2><%= product.name %></h2>
-						<p><%= sanitize product.description %></p>
-						<p><%= number_to_currency(product.price) %></p>
+						<p><%= sanitize product.description %></p> <br>
+						<span class="currency">
+							 <%= number_to_currency(product.price) %>
+						</span>
+							<%= button_to "add to cart", line_items_path(product_id: product.id), method: :post, class: "btn btn-primary" %>
 					</div>
 				</li>
 			<% end %>
 		<% end %>
 	</ul>
 <% end %>
+<% if session[:counter] >= 5 %>
+	<div class="funfact well">you have visited this page <%= pluralize(session[:counter],"time") %></div>
+<% end %>
+<%#= debug session[:counter] %>
