@@ -14,30 +14,52 @@
 
 
 nav.navbar{
-	background: #9c9;
-	border: none;
+	// background: #9c9;
+	// border: none;
 	border-radius: 0;
-	border-bottom: 2px solid;
-	text-align: center;
-	color: #282 !important;
-	margin: 0;
+	margin-bottom: 0;
+	// border-bottom: 2px solid;
+	// text-align: center;
+	// color: #282 !important;
+	// margin: 0;
 
 	.navbar-brand {
 		// font: small-caps 20px/20px "Times New Roman", serif;
-		color: #282;
-		font-size: 40px;
-		line-height: 40px;
-		height: 70px;
-		&:hover{ color: #141; }
+		// color: #282;
+		font-size: 30px;
+		// line-height: 40px;
+		// height: 70px;
+		// &:hover{ color: #141; }
 	}
 	.navbar-text{
-		font-size: 20px;
+		font-size: 12px;
 		font-style: italic;
 		float: right;
-		color: #282;
-		margin-top: 30px;
+		&:hover{ color: #eee; }
+		// color: #282;
+		// margin-top: 30px;
 	}
 }
+
+#sidebar-wrapper  p{
+		color: #666;
+		&:hover{ color: #aaa; }
+		font-size: 12px;
+		// text-align: right;
+		padding-top: 50px;
+		text-transform: capitalize;
+		font-style: italic;	
+		position: absolute;
+		bottom: 50px;
+		.fa-clock-o{
+			font-size: 40px;
+			float: left;
+			margin-right: 10px;
+			position: relative;
+			top: -2px;
+		}
+}
+
 
 aside{
 	background: #141;

@@ -4,15 +4,18 @@
 
 .store{
 	h1{
-		color: #227;
-		border-bottom:1px dashed #44a;
+		// color: #227;
+		// border-bottom:1px dashed #44a;
 	}
 	ul.catalog{
 		list-style: none;
 		 li{
-		 	h2{color: #227;} 
-		 	span.currency{ color: #44a; }
-		 	margin-bottom:10px;
+		 	h2{color: #227; margin-top:0;} 
+		 	span.currency{ 
+		 		// color: #44a; 
+		 		font-size: 100%;
+		 	}
+		 	margin-bottom:20px;
 		 	form{ display: inline-block;
 				div { display: inline-block;
 					  margin-left: 10px;
