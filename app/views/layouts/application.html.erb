@@ -53,13 +53,14 @@ buy and sell</p>
     <%= Time.now.strftime("%R") %> hrs</p>
 
    </aside> -->
-  <div  id="page-content-wrapper" class="container">
+  <div  id="page-content-wrapper">
     <% flash.each do |key, value| %>
       <div class="alert alert-<%= key %>">
           <%= value %>  
       </div>
     <% end %>
   	<%= yield %>
+    <%= debug params if Rails.env.development? %>
   </div>
 </div>
 <style>
@@ -86,6 +87,11 @@ buy and sell</p>
 
 #page-content-wrapper {
   width: 100%;
+  padding-top: 20px;
+  padding-right: 15px;
+padding-left: 15px;
+margin-right: auto;
+margin-left: auto;
 }
 
 .sidebar-nav {

@@ -2,11 +2,20 @@
 <div class="page-header">
 	<h1>Your Depot Cart</h1>
 </div>
-<ul>
-<% @cart.line_items.each do |li| %>
-	<li><%= li.count %> x <%= li.product.name %></li>
-<% end %>
-</ul>
-<!-- 
-<%= link_to 'Edit', edit_cart_path(@cart) %> |
-<%= link_to 'Back', carts_path %> -->
+<%= button_to "empty cart", @cart, method: :delete, class: "pull-right btn btn-danger empty_cart", data: { confirm: "Are you sure?" } %>
+
+<div class="table-responsive">
+	<table class="table table-striped mycart">
+		<% @cart.line_items.each do |li| %>
+			<tr>
+				<td><%= li.quantity %> &times; <%= li.product.name %></td>
+				<td><%= number_to_currency li.total_price %></td>
+				<td><%= button_to "remove item", line_item_path(li), method: :delete, class: "btn btn-danger btn-sm" %></td>
+			</tr>
+		<% end %>
+			<tr>
+				<td>Total:</td>
+				<td><%= number_to_currency @tp %></td>
+			</tr>
+	</table>
+</div>

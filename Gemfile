@@ -32,6 +32,8 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+gem 'byebug', ">2.5.0", group: :development
+
 group :development, :test do
 	gem 'rspec-rails', '2.14.1'
 	gem 'guard-rspec'
