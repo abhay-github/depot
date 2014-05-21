@@ -10,12 +10,12 @@
 			<tr>
 				<td><%= li.quantity %> &times; <%= li.product.name %></td>
 				<td><%= number_to_currency li.total_price %></td>
-				<td><%= button_to "remove item", line_item_path(li), method: :delete, class: "btn btn-danger btn-sm" %></td>
+				<td><%= button_to "remove item", line_item_path(li), method: :delete, class: "btn btn-danger btn-sm", data: { confirm: "are you sure?" } %></td>
 			</tr>
 		<% end %>
 			<tr>
 				<td>Total:</td>
-				<td><%= number_to_currency @tp %></td>
+				<td><%= number_to_currency @cart.total_price %></td>
 			</tr>
 	</table>
 </div>

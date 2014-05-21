@@ -12,7 +12,6 @@ class CartsController < ApplicationController
   # GET /carts/1
   # GET /carts/1.json
   def show
-    @tp = @cart.total_price
   end
 
   # GET /carts/new
