@@ -13,5 +13,7 @@ FactoryGirl.define do
 	factory :line_item do
 		product
 		cart
+		quantity
+		price
 	end
 end

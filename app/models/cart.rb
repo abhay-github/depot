@@ -8,6 +8,7 @@ class Cart < ActiveRecord::Base
         li.quantity += 1
     else
         li = self.line_items.build(product_id: product_id)
+        # li.price = li.product.price
     end
     li
   end

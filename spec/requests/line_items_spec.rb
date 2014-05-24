@@ -33,10 +33,7 @@ describe "LineItems" do
 				visit store_path
 				# click_button "remove"  
 				first("input[type=submit][value=remove]").click
-				# page.driver.wait_until(page.driver.browser.switch_to.alert.accept)
 				page.driver.browser.switch_to.alert.accept
-				# a = page.driver.browser.switch_to.alert
-        		# a.accept  # can also be a.dismiss
 			end
 			# it { should have_content "line item removed from the cart" }
 			it { should_not have_selector "div.cart", text: p1.name }
