@@ -13,6 +13,11 @@
  */
 
 
+// global rules and variables
+$sidebar-width: 250px;
+
+
+// top bar of page
 nav.navbar{
 	// background: #9c9;
 	// border: none;
@@ -41,12 +46,70 @@ nav.navbar{
 	}
 }
 
-#sidebar-wrapper  p{
+
+
+// page wrap
+#wrapper {
+  padding-left: $sidebar-width;
+  padding-top: 50px;
+  transition: all 0.4s ease 0s;
+}
+
+
+
+// sidebar styles
+#sidebar-wrapper {
+  /*margin-top: 50px;*/
+  margin-left: -$sidebar-width;
+  left: $sidebar-width;
+  width: $sidebar-width;
+  background: #222;
+  border-color: #080808;
+  position: fixed;
+  height: 100%;
+  overflow-y: auto;
+  z-index: 1000;
+  transition: all 0.4s ease 0s;
+
+	> div.cart{
+		color: #999;
+		padding: 10px;
+		transition: color 0.3s ease, background 0.3s ease;
+		&:hover{
+			color: #fff;
+			background: rgba(255,255,255,0.2)
+		}
+		.page-header{
+			margin: 0 0 5px;
+			padding: 0;
+			border-bottom: 1px solid rgba(239,239,239,0.7);
+
+			h1{ font-size: 16px; }
+		}
+		table{
+		}
+		.table-striped > tbody > tr:nth-child(odd) > td, .table-striped > tbody > tr:nth-child(odd) > th {
+			background-color: rgba(248,248,248,0.1);
+		}
+		tr{
+			// &:first-child{
+			// 	td{border-top:none;}
+			// }
+		    &.current{ 
+		    	// background-color: #f0ad4e;
+				color: #fff;
+	    	}
+		    &.current.highlight{ background-color: inherit; color: inherit; }
+		}
+	}
+
+
+  p{
 		color: #666;
 		&:hover{ color: #aaa; }
 		font-size: 12px;
 		// text-align: right;
-		padding-top: 50px;
+		// padding-top: 50px;
 		text-transform: capitalize;
 		font-style: italic;	
 		position: absolute;
@@ -58,53 +121,159 @@ nav.navbar{
 			position: relative;
 			top: -2px;
 		}
+	}
+
 }
 
-
-aside{
-	background: #141;
-	// position: absolute !important;
-	// bottom: 0;
-	// top: 72px;
-	padding: 30px;
-	height: 600px;
-
-	ul{
-		list-style: none;
-		li > a { 
-			color: #bfb;
-			&:hover{ color: #fff; text-decoration:none;
-			 }
-			}
-		li{ margin-top: 10px; }
-	}
-	p{
-		color: #fff;
-		font-size: 12px;
-		text-align: right;
-		padding-top: 50px;
-		text-transform: lowercase;
-		font-style: italic;
-	}
+.sidebar-nav {
+  width: $sidebar-width;
+  list-style: none;
+  margin-top: 20px;
+  padding: 0;
 }
 
+.sidebar-nav li {
+  line-height: 40px;
+  text-indent: 20px;
+}
+
+.sidebar-nav li a {
+  color: #999999;
+  display: block;
+  text-decoration: none;
+  i.fa{
+  	width: 40px;
+  }
+  i.fa-mobile{
+  	font-size: 130%;
+  }
+}
+
+.sidebar-nav li a:hover {
+  color: #fff;
+  background: rgba(255,255,255,0.2);
+  text-decoration: none;
+}
+
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+  text-decoration: none;
+}
+
+.sidebar-nav > .sidebar-brand {
+  height: 65px;
+  line-height: 60px;
+  font-size: 18px;
+}
+
+.sidebar-nav > .sidebar-brand a {
+  color: #999999;
+}
+
+.sidebar-nav > .sidebar-brand a:hover {
+  color: #fff;
+  background: none;
+}
+
+.content-header {
+  height: 65px;
+  line-height: 65px;
+}
+
+.content-header h1 {
+  margin: 0;
+  margin-left: 20px;
+  line-height: 65px;
+  display: inline-block;
+}
+
+#menu-toggle {
+  display: none;
+}
+
+.inset {
+  padding: 20px;
+}
+
+#menu-toggle {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  border-color: #333;
+background: transparent;
+color: white;
+  display: none;
+}
+#menu-toggle:hover, #menu-toggle:active{
+  background: #333;
+
+}
+
+@media (max-width:767px) {
+	p.navbar-text{ display: none; }
+	#wrapper {
+	  padding-left: 0;
+	}
+
+	#sidebar-wrapper {
+	  left: 0;
+	}
+
+	#wrapper.active {
+	  position: relative;
+	  left: $sidebar-width;
+	}
+
+	#wrapper.active #sidebar-wrapper {
+	  left: $sidebar-width;
+	  width: $sidebar-width;
+	  transition: all 0.4s ease 0s;
+	}
+
+	#menu-toggle {
+	  display: inline-block;
+	}
+
+	.inset {
+	  padding: 15px;
+	}
+
+}
+// end: sidebar styles
 
 
-// <% cache ['store', Product.latest] do %>
-// 	<ul class="catalog">
-// 		<% @products.each do |product| %>
-// 			<% cache ['entry', product] do%>
-// 				<li class="row">
-// 					<div class="col-md-2">
-// 						<%= image_tag product.image_url, size: "150x150" , class: "img-responsive" %>
-// 					</div>
-// 					<div class="col-md-10 ">
-// 						<h2><%= product.name %></h2>
-// 						<p><%= sanitize product.description %></p>
-// 						<p><%= number_to_currency(product.price) %></p>
-// 					</div>
-// 				</li>
-// 			<% end %>
-// 		<% end %>
-// 	</ul>
-// <% end %>
+#page-content-wrapper {
+  width: 100%;
+  padding-top: 20px;
+  padding-right: 15px;
+padding-left: 15px;
+margin-right: auto;
+margin-left: auto;
+}
+
+// aside{
+// 	background: #141;
+// 	// position: absolute !important;
+// 	// bottom: 0;
+// 	// top: 72px;
+// 	padding: 30px;
+// 	height: 600px;
+
+// 	ul{
+// 		list-style: none;
+// 		li > a { 
+// 			color: #bfb;
+// 			&:hover{ color: #fff; text-decoration:none;
+// 			 }
+// 			}
+// 		li{ margin-top: 10px; }
+// 	}
+// 	p{
+// 		color: #fff;
+// 		font-size: 12px;
+// 		text-align: right;
+// 		padding-top: 50px;
+// 		text-transform: lowercase;
+// 		font-style: italic;
+// 	}
+// }

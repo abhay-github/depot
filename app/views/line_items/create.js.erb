@@ -1,0 +1,12 @@
+// if ($('.cart tr').length == 1) { $('#cart').show('blind', 1000); }
+if ($('.cart tr').length == 1) { $('.cart').slideDown(); }
+
+$("div.cart").html("<%= escape_javascript(render @cart) %>");
+$("div.cart tr.current").css({'background-color':'#f0ad4e'}).animate({'background-color':'transparent'}, 1000);
+
+// calling after set timeout to make css transitions work properly
+// setTimeout(function(){
+// 	$("div.cart tr.current").addClass("highlight");
+// }, 0)
+
+

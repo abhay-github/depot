@@ -11,28 +11,39 @@ describe "LineItems" do
 
 	describe "adding line item to cart" do
 		before { click_button "add to cart" }
-		it { should have_selector "div.alert", text: "added" }
-		it { should have_content p1.name }
-		it "should not change the line items' count" do
-			# expect { click_button "add to cart" }.to change(LineItem, :count).by(1)
+		
+		# following test not required bcoz of ajax
+		# it { should have_selector "div.alert", text: "added" }
+
+		it "should show added item", js: true do
+			expect(page).to have_selector "div.cart", text: p1.name
 		end
 
 		# perhaps the following test should be seperated out to a seperate block
-		it "should show correct quantity for line items" do
+		it "should show correct quantity for line items", js:true do
+			visit store_path
 			3.times do
-				visit store_path
 				find("li", text: p1.name).find_button("add to cart").click
 			end
 			expect(page).to have_content "4 × #{p1.name}"
 		end
 
-		describe "followed by deleting line item" do
+		describe "followed by deleting line item", js: true do
 			before do
-				visit cart_path(Cart.first)
-				click_button "remove item"  
+				visit store_path
+				# click_button "remove"  
+				first("input[type=submit][value=remove]").click
+				# page.driver.wait_until(page.driver.browser.switch_to.alert.accept)
+				page.driver.browser.switch_to.alert.accept
+				# a = page.driver.browser.switch_to.alert
+        		# a.accept  # can also be a.dismiss
 			end
-			it { should have_content "line item removed from the cart" }
-			it { should_not have_content p1.name }
+			# it { should have_content "line item removed from the cart" }
+			it { should_not have_selector "div.cart", text: p1.name }
+
+			it "should hide cart if empty" do
+				# dont know how to test this jquery fadeout css display: none
+			end
 		end
 	end
 

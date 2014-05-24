@@ -1,0 +1,9 @@
+	<% if @line_item == line_item %>
+	<tr class="current">
+	<% else %>
+	<tr>
+	<% end %>
+		<td><%= line_item.quantity %> &times; <%= line_item.product.name %></td>
+		<td><%= number_to_currency line_item.total_price %></td>
+		<td><%= button_to "remove", line_item_path(line_item), method: :delete, class: "btn btn-danger btn-xs", data: { confirm: "are you sure?" }, remote: true %></td>
+	</tr>

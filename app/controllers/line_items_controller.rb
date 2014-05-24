@@ -32,8 +32,9 @@ class LineItemsController < ApplicationController
       if @line_item.save
         session[:counter] = 0;
         # format.html { redirect_to @cart, notice: 'Line item was successfully created.' }
-        format.html { redirect_to @cart, flash: { success: 'Line item was successfully added to cart.' } }
+        format.html { redirect_to store_path, flash: { success: 'Line item was successfully added to cart.' } }
         # format.json { render action: 'show', status: :created, location: @line_item }
+        format.js   { @curr_line_item = @line_item }
       else
         format.html { render 'store/index', flash: { danger: 'error: line item could not be added' } }
         # format.json { render json: @line_item.errors, status: :unprocessable_entity }
@@ -65,6 +66,7 @@ class LineItemsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to @cart, flash: { warning: "line item removed from the cart" } }
       # format.json { head :no_content }
+      format.js
     end
   end
 

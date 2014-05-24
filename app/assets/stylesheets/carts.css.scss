@@ -3,14 +3,12 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-.empty_cart{
-	margin-bottom: 20px;
-}
+
 .mycart{
 	tr:last-child{
 		font-weight: bold;
-		td:first-child{
-			text-align: right;
-		}
+	}
+	tr:first-child{
+		td{border-top:none;}
 	}
 }

@@ -62,8 +62,10 @@ class CartsController < ApplicationController
       @cart.destroy
       session[:cart_id] = nil;
       respond_to do |format|
-        format.html { redirect_to store_path, flash: { info: "Your cart is now empty" } }
+        # format.html { redirect_to store_path, flash: { info: "Your cart is now empty" } }
+        format.html { redirect_to store_path }
         # format.json { head :no_content }
+        format.js
       end
     else
       # handle the case where cart is not from your session

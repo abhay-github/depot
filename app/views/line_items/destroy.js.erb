@@ -1,0 +1,5 @@
+$("div.cart").html("<%= escape_javascript(render @cart) %>")
+if ($("div.cart tr").length == 1)
+{
+	$("div.cart").fadeOut();
+}
