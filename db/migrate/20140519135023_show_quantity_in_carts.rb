@@ -1,5 +1,3 @@
-require 'byebug'
-
 class ShowQuantityInCarts < ActiveRecord::Migration
 	def up
 		Cart.all.each do |crt|
