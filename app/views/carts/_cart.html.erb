@@ -12,4 +12,6 @@
 		</tr>
 	</table>
 </div>
-<%= button_to "empty cart", cart, method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure?" }, remote: true %>
+<% checkout_page = true if current_page?(new_order_path) -%>
+<%= button_to "empty cart", cart, method: :delete, class: "btn btn-danger btn-sm pull-right", data: { confirm: "Are you sure?" }, remote: !checkout_page %>
+<%= link_to "checkout", new_order_path, { disabled: checkout_page, class: "btn btn-success" } %>

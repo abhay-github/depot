@@ -13,7 +13,13 @@ FactoryGirl.define do
 	factory :line_item do
 		product
 		cart
-		quantity
-		price
+		quantity	1
+		price	10
+	end
+
+	factory :user do
+		name 	"name 1"
+		password	"foobar"
+		password_confirmation	"foobar"
 	end
 end

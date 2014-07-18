@@ -1,0 +1,33 @@
+<div class="page-header">
+  <h1>Who bought <%= @product.name %></h1>
+</div>
+
+<ul>
+	<% @product.orders.each do |order| %>
+		<li>
+			<h3><%= "Order #{order.id}" %></h3>
+			<p><%= "Shipped to #{order.address}" %></p>
+			<table class="table">
+				<tr>
+					<th>Product</th>
+					<th>Quantity</th>
+					<th>Total Price</th>
+				</tr>
+				<% order.line_items.each do |li| %>
+					<tr>
+						<td><%= li.product.name %></td>
+						<td><%= li.quantity %></td>
+						<td><%= number_to_currency li.total_price %></td>
+					</tr>
+				<% end %>
+				<tr>
+					<th colspan="2">Total</th>
+					<th><%= number_to_currency order.line_items.sum(&:total_price) %></th>
+				</tr>
+			</table>
+			<p><%= "Paid by #{order.pay_type}" %></p>
+			<p><%= order.name %></p>			
+		</li>
+	<% end %>
+</ul>
+

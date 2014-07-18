@@ -2,4 +2,7 @@ $("div.cart").html("<%= escape_javascript(render @cart) %>")
 if ($("div.cart tr").length == 1)
 {
 	$("div.cart").fadeOut();
+	<% if request.referrer == new_order_url %>
+		window.location = "<%= store_path %>";
+	<% end %>
 }

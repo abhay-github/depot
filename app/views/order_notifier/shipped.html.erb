@@ -1,0 +1,17 @@
+<h3>Depotbay Order Shipped</h3>
+<p>This is just to inform you that we've shipped your recent order:</p>
+<table>
+	<tr>
+		<th>Qty</th>
+		<th>Description</th>
+	</tr>
+	<% @order.line_items.each do |item| %>
+		<tr>
+			<td><%= item.quantity %></td> &times;
+			<td><%= item.product.name %></td>
+			<td><%= number_to_currency item.total_price %></td>
+		</tr>	
+	<% end %>
+</table>
+<%#= render @order.line_items %>
+ 

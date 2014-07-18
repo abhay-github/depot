@@ -23,6 +23,7 @@ nav.navbar{
 	// border: none;
 	border-radius: 0;
 	margin-bottom: 0;
+	z-index:1005;
 	// border-bottom: 2px solid;
 	// text-align: center;
 	// color: #282 !important;
@@ -40,6 +41,7 @@ nav.navbar{
 		font-size: 12px;
 		font-style: italic;
 		float: right;
+		cursor: default;
 		&:hover{ color: #eee; }
 		// color: #282;
 		// margin-top: 30px;
@@ -51,7 +53,7 @@ nav.navbar{
 // page wrap
 #wrapper {
   padding-left: $sidebar-width;
-  padding-top: 50px;
+  // padding-top: 50px;
   transition: all 0.4s ease 0s;
 }
 
@@ -66,7 +68,13 @@ nav.navbar{
   background: #222;
   border-color: #080808;
   position: fixed;
-  height: 100%;
+	height: 100%;
+	top: 0px;
+  	padding-top: 50px;
+  
+  &.fixed{
+  	padding-top: 0px;
+  	}
   overflow-y: auto;
   z-index: 1000;
   transition: all 0.4s ease 0s;
@@ -108,12 +116,14 @@ nav.navbar{
 		color: #666;
 		&:hover{ color: #aaa; }
 		font-size: 12px;
+		cursor: default;
 		// text-align: right;
 		// padding-top: 50px;
 		text-transform: capitalize;
 		font-style: italic;	
 		position: absolute;
-		bottom: 50px;
+		bottom: 0px;
+		padding-left: 40px;
 		.fa-clock-o{
 			font-size: 40px;
 			float: left;
@@ -135,7 +145,14 @@ nav.navbar{
 .sidebar-nav li {
   line-height: 40px;
   text-indent: 20px;
+  &:nth-child(5) {
+	  margin-top:20px;
+	}
+  &:nth-child(8) {
+	  margin-left:20px;
+	}		
 }
+
 
 .sidebar-nav li a {
   color: #999999;

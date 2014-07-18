@@ -1,5 +1,6 @@
 class Product < ActiveRecord::Base
 	has_many	:line_items
+	has_many	:orders, through: :line_items
 	before_destroy :check_line_items_before_destroying
 
 	validates :name, :description, :image_url, presence: true

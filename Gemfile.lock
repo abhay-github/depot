@@ -44,6 +44,7 @@ GEM
       tzinfo (~> 0.3.37)
     addressable (2.3.6)
     arel (4.0.2)
+    bcrypt-ruby (3.1.2)
     builder (3.1.4)
     byebug (3.1.2)
       columnize (~> 0.8)
@@ -220,6 +221,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt-ruby (~> 3.1.2)
   byebug (> 2.5.0)
   capybara
   childprocess

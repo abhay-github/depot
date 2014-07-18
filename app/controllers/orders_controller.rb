@@ -1,5 +1,8 @@
 class OrdersController < ApplicationController
+  include CurrentCart
   before_action :set_order, only: [:show, :edit, :update, :destroy]
+  before_action :authorize
+  skip_before_action :authorize, only: [:new, :create]
 
   # GET /orders
   # GET /orders.json
@@ -14,6 +17,7 @@ class OrdersController < ApplicationController
 
   # GET /orders/new
   def new
+    set_cart
     @order = Order.new
   end
 
@@ -24,15 +28,22 @@ class OrdersController < ApplicationController
   # POST /orders
   # POST /orders.json
   def create
+    # byebug
+    set_cart
     @order = Order.new(order_params)
+    @order.fill_in_line_items(@cart)
 
     respond_to do |format|
       if @order.save
-        format.html { redirect_to @order, notice: 'Order was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @order }
+        @cart.reload    # reloading to ensure the association with line items is broken
+        @cart.destroy
+        session[:cart_id] = nil
+        OrderNotifier.received(@order).deliver
+        format.html { redirect_to store_path, flash: { success: 'Your order is successfully placed.' } }
+        # format.json { render action: 'show', status: :created, location: @order }
       else
         format.html { render action: 'new' }
-        format.json { render json: @order.errors, status: :unprocessable_entity }
+        # format.json { render json: @order.errors, status: :unprocessable_entity }
       end
     end
   end

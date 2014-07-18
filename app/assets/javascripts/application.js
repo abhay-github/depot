@@ -17,3 +17,19 @@
 //= require turbolinks
 //= require_tree .
 
+
+// ===================================================================
+// MOVE ALL THIS CODE AT END OF DOM OTHERWISE BUGGY===================
+winHt = $(window).height();
+sidebar = $("#sidebar-wrapper")
+$("#sidebar-wrapper").css('height', winHt);
+$(window).scroll(function() {
+    st=$(window).scrollTop();
+    console.log(st)
+    if(st > 50)
+    	// sidebar.addClass('fixed')
+    	$("#sidebar-wrapper").addClass('fixed')
+    else
+    	// $sidebar.removeClass('fixed')
+    	$("#sidebar-wrapper").removeClass('fixed')
+})
