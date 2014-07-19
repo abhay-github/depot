@@ -27,8 +27,7 @@
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
       <%= f.submit nil, :class => 'btn btn-primary' %>
-      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                orders_path, :class => 'btn btn-default' %>
+      <INPUT Type="button" VALUE="Back" onClick="history.go(-1);return true;" class="btn btn-default">
     </div>
   </div> 
 <% end %>
