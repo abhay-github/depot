@@ -38,7 +38,7 @@ buy and sell</p>
                     <li><%= button_to "Logout", signout_path, method: :delete, class: "btn  btn-default btn-sm" %></li>
                   <% end %>
               </ul>
-              <p class="col-xs-12"><i class="fa fa-clock-o"></i> <%= Time.now.strftime("%d-%b-%Y") %> <br>
+              <p id="current_time" class="col-xs-12"><i class="fa fa-clock-o"></i> <%= Time.now.strftime("%d-%b-%Y") %> <br>
     <%= Time.now.strftime("%R") %> hrs</p>
           </div>
 
