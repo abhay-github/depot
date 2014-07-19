@@ -28,14 +28,16 @@ buy and sell</p>
               <% end %>
               <ul class="sidebar-nav">
                   <li> <a href="<%= store_path %>"><i class="fa fa-home"></i> Home</a> </li>
-                  <li> <a href=""><i class="fa fa-question-circle"></i> Questions</a> </li>
-                  <li> <a href=""><i class="fa fa-calendar"></i> News</a></li>
-                  <li> <a href=""><i class="fa fa-mobile"></i> Contact</a></li>
+                  <li> <a href="<%= questions_path %>"><i class="fa fa-question-circle"></i> Questions</a> </li>
+                  <li> <a href="<%= news_path %>"><i class="fa fa-calendar"></i> News</a></li>
+                  <li> <a href="<%= contact_path %>"><i class="fa fa-mobile"></i> Contact</a></li>
                   <% if session[:user_id] %>
                     <li><a href="<%= orders_path %>"><i class="fa fa-shopping-cart"></i>Orders</a></li>
                     <li><a href="<%= products_path %>"><i class="fa fa-gift"></i>Products</a></li>
                     <li><a href="<%= users_path %>"><i class="fa fa-users"></i>Users</a></li>
                     <li><%= button_to "Logout", signout_path, method: :delete, class: "btn  btn-default btn-sm" %></li>
+                  <% else %>
+                    <li><%= button_to "Admin Login", signin_path, method: :get, class: "btn  btn-default btn-sm" %></li>
                   <% end %>
               </ul>
               <p id="current_time" class="col-xs-12"><i class="fa fa-clock-o"></i> <%= Time.now.strftime("%d-%b-%Y") %> <br>

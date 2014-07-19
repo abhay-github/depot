@@ -1,5 +1,9 @@
 Depot::Application.routes.draw do
   
+  match '/questions', to: 'static_pages#questions', via: 'get'
+  match '/news', to: 'static_pages#news', via: 'get'
+  match '/contact', to: 'static_pages#contact', via: 'get'
+  
   resources :sessions, only: [:new, :create, :destroy]
   match '/signin', to: 'sessions#new', via: 'get'
   match '/signout', to: 'sessions#destroy', via: 'delete'

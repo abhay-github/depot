@@ -151,7 +151,7 @@ nav.navbar{
   &:nth-child(5) {
 	  margin-top:20px;
 	}
-  &:nth-child(8) {
+  > form {
 	  margin-left:20px;
 	}		
 }
